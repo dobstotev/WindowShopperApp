@@ -29,10 +29,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="apF-Sx-StD" userLabel="TextFields">
-                                <rect key="frame" x="40" y="165" width="295" height="115"/>
+                                <rect key="frame" x="40" y="165" width="295" height="223"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your hourly wage and find out how many hours you need to work for it" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCz-4T-Z5J">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your hourly wage" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FcO-nh-NDB" customClass="CurrencyTextFields" customModule="Window_shopper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="295" height="45"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="295" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="nnF-aB-QFC"/>
                                         </constraints>
@@ -41,24 +47,30 @@
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NSA-gV-A9b" customClass="CurrencyTextFields" customModule="Window_shopper" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="70" width="295" height="45"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="295" height="45"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error: Please enter real numbers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrB-cz-SJO">
+                                        <rect key="frame" x="0.0" y="203.5" width="295" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="NSA-gV-A9b" firstAttribute="height" secondItem="FcO-nh-NDB" secondAttribute="height" id="8FA-dZ-9se"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="44" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMt-Sc-xDT">
-                                <rect key="frame" x="40" y="322" width="295" height="45"/>
+                                <rect key="frame" x="40" y="430" width="295" height="45"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRK-1k-e6L">
-                                <rect key="frame" x="163" y="367" width="49.5" height="24"/>
+                                <rect key="frame" x="163" y="475" width="49.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -96,8 +108,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="DescriptionTXT" destination="UCz-4T-Z5J" id="ntb-su-94k"/>
                         <outlet property="PriceTXT" destination="NSA-gV-A9b" id="6nR-i1-Vjz"/>
                         <outlet property="WageTXT" destination="FcO-nh-NDB" id="Oac-Wx-yia"/>
+                        <outlet property="clearCalculatorBTN" destination="cZo-Cp-UNu" id="mpd-1o-HuT"/>
+                        <outlet property="errorLBL" destination="nrB-cz-SJO" id="JzA-88-pWC"/>
                         <outlet property="hoursLBL" destination="GRK-1k-e6L" id="tbW-ul-6Km"/>
                         <outlet property="resultLBL" destination="vMt-Sc-xDT" id="qSw-pd-K8Q"/>
                     </connections>

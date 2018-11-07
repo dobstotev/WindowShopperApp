@@ -10,10 +10,14 @@ import UIKit
 
 class MainVC: UIViewController {
     
+    @IBOutlet weak var DescriptionTXT: UILabel!
     @IBOutlet weak var WageTXT: CurrencyTextFields!
     @IBOutlet weak var PriceTXT: CurrencyTextFields!
     @IBOutlet weak var resultLBL: UILabel!
     @IBOutlet weak var hoursLBL: UILabel!
+    @IBOutlet weak var clearCalculatorBTN: UIButton!
+    
+    @IBOutlet weak var errorLBL: UILabel!
     
     
     override func viewDidLoad() {
@@ -26,6 +30,8 @@ class MainVC: UIViewController {
         calcBTN.setTitle("Calculate", for: .normal)
         calcBTN.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
         calcBTN.addTarget(self, action: #selector(MainVC.Calculate), for: .touchUpInside)
+        clearCalculatorBTN.isHidden = true;
+        errorLBL.isHidden = true
         
         WageTXT.inputAccessoryView = calcBTN
         PriceTXT.inputAccessoryView = calcBTN
@@ -44,6 +50,10 @@ class MainVC: UIViewController {
                 resultLBL.isHidden = false
                 hoursLBL.isHidden = false
                 resultLBL.text = ("\(Wage.getHours(forWage: wage, andPrice: price))")
+                clearCalculatorBTN.isHidden = false;
+                errorLBL.isHidden = true
+            } else {
+                errorLBL.isHidden = false
             }
         }
     }
@@ -53,6 +63,8 @@ class MainVC: UIViewController {
         hoursLBL.isHidden = true
         WageTXT.text = ""
         PriceTXT.text = ""
+        clearCalculatorBTN.isHidden = true;
+        errorLBL.isHidden = true
     }
 
 
