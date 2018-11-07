@@ -17,6 +17,23 @@ class CurrencyTextFields: UITextField {
         CustomizeView()
     }
     
+    override func draw(_ rect: CGRect) {
+        let size: CGFloat = 20
+        let currencyLBL = UILabel(frame: CGRect(x: 10, y: (frame.size.height/2 - size/2), width: size, height: size))
+        currencyLBL.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.6970515839)
+        currencyLBL.textAlignment = .center
+        currencyLBL.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        currencyLBL.layer.cornerRadius = 5.0
+        currencyLBL.clipsToBounds = true
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = .current
+        currencyLBL.text = formatter.currencySymbol
+        
+        addSubview(currencyLBL)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         CustomizeView()
@@ -26,6 +43,7 @@ class CurrencyTextFields: UITextField {
         backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.25)
         layer.cornerRadius = 5.0
         textAlignment = .center
+        clipsToBounds = true
         
         //Using the placeholder of a text field and setting it to an empty value with ""
         if let p = placeholder {

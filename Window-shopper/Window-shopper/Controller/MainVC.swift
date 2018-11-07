@@ -33,6 +33,8 @@ class MainVC: UIViewController {
         resultLBL.isHidden = true
         hoursLBL.isHidden = true
         
+
+        
     }
     
     @objc func Calculate(){
